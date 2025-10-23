@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Dashboard with JWT Authentication
 
-## Getting Started
+Ini adalah proyek [Next.js](https://nextjs.org) dengan **autentikasi JWT** dan **Prisma ORM** untuk manajemen basis data. Proyek ini mencakup rute terproteksi (dasbor) dan fungsionalitas login/logout pengguna.
 
-First, run the development server:
+---
+
+## Fitur
+
+- Halaman dasbor yang dilindungi (diperlukan JWT)
+
+- Fungsionalitas Login dan Logout
+
+- Manajemen pengguna dengan Prisma
+
+- Migrasi dan seeding basis data dengan Prisma
+  
+---
+
+## Permulaan
+
+### 1. Clone Repo
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+
+### 2. Instal Dependensi
+
+```bash
+npm install
+```
+
+### 3. Setup ENV
+
+```bash
+DATABASE_URL="mysql://root:@localhost:3306/login_test"
+JWT_SECRET="secret"
+COOKIE_NAME="token"
+```
+
+### 4. Migrasi Database
+
+```bash
+npx prisma migrate dev --name init
+```
+
+### 5. Seed Database
+
+```bash
+npx prisma db seed
+# username/email: test@example.com
+# password: password123
+```
+
+### 6. Jalankan Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:** React.js (Next.js App Router + Tailwind CSS)  
+- **Backend:** Node.js (Next.js API Routes)  
+- **Database:** MySQL (Prisma ORM)  
+- **Authentication:** JWT + HttpOnly Cookies  
+- **Password Security:** bcrypt (hashing password)  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tampilan UI
 
-## Learn More
+<img width="500" height="603" alt="image" src="https://github.com/user-attachments/assets/ab2fb42b-cc70-4d9d-b503-3cd59c113b41" />
+<img width="1365" height="681" alt="Screenshot 2025-10-23 085432" src="https://github.com/user-attachments/assets/291257b1-5623-4eab-bb36-95e01466e6c9" />
+<img width="1365" height="677" alt="Screenshot 2025-10-23 085457" src="https://github.com/user-attachments/assets/95b5103a-e5cd-473c-9ae5-b1ce72bd5bd6" />
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
